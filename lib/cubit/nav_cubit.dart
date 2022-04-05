@@ -4,9 +4,9 @@ import 'package:meta/meta.dart';
 part 'nav_state.dart';
 
 class NavCubit extends HydratedCubit<NavState> {
-  NavCubit() : super(const NavState('/'));
+  NavCubit(String initialLocation) : super(NavState(initialLocation));
 
-  void setPath(String path) => emit(NavState(path));
+  void setLocation(String location) => emit(NavState(location));
 
   @override
   NavState? fromJson(Map<String, dynamic> json) => NavState.fromJson(json);

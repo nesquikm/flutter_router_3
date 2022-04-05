@@ -2,11 +2,12 @@ part of 'nav_cubit.dart';
 
 @immutable
 class NavState {
-  const NavState(this.path);
+  const NavState(this.location);
 
-  final String path;
+  final String location;
 
   factory NavState.fromJson(Map<String, dynamic> json) =>
-      NavState(json['path'] as String);
-  static Map<String, dynamic>? toJson(NavState state) => {'path': state.path};
+      NavState(json['location'] as String);
+  static Map<String, dynamic>? toJson(NavState state) =>
+      {'location': state.location};
 }

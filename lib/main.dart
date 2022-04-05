@@ -24,7 +24,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-        create: (context) => NavCubit(),
+        create: (context) => NavCubit('/'),
         child: Builder(builder: (context) {
           final _router = GoRouter(
             routes: [
@@ -41,11 +41,11 @@ class App extends StatelessWidget {
             ],
             debugLogDiagnostics: true,
             redirect: (state) {
-              context.read<NavCubit>().setPath(state.location);
+              context.read<NavCubit>().setLocation(state.location);
 
               return null;
             },
-            initialLocation: context.read<NavCubit>().state.path,
+            initialLocation: context.read<NavCubit>().state.location,
           );
 
           return MaterialApp.router(
